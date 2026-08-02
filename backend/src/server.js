@@ -10,11 +10,13 @@ const port = process.env.PORT||5001;
 
 //middle ware
 const app = express();
-app.use(express.json());
-app.use(rateLimiter);
+
 app.use(cors({
     origin:"http://localhost:5173"
 }));
+app.use(express.json());
+
+app.use(rateLimiter);
 
 
 app.use((req,res,next)=>{
