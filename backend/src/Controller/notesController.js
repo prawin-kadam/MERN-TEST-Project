@@ -28,8 +28,6 @@ export async function createNote(req,res) {
     try {
         const {title,content} = req.body;
         const  note = new Notes({title,content});
-        
-
         await note.save();
         res.status(201).json({message:"Note has been added!"});
 
