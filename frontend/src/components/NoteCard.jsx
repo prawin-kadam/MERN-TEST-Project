@@ -14,7 +14,7 @@ import formateDate from "../lib/utils";
           <p className = "text-base-content/70 line-clamp-3" >{note.content}</p>
           <div className="card-actions justify-between items-center mt-4 ">
             <span className="text-sm text-base-content/60">
-              {formateDate(note.createdAT)}
+              {formateDate(note.createdAt)}
             </span>
               <div className="flex items-center gap-1">
                 <PencilLine className="size-4" />
