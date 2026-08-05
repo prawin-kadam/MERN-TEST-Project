@@ -42,13 +42,6 @@ const CreatePage = () => {
 
   }
 
-  const handleDelete = async ()=>{
-    try {
-      
-    } catch (error) {
-      toast.error("failed delete note")
-    }
-  }
 
   return (
     <div className="min-h-screen bg-base-200" >
@@ -80,7 +73,7 @@ const CreatePage = () => {
                   </label>
                   <textarea
                     placeholder='write something here ..........'
-                    className="textarea textarea-bordered h-32"
+                    className="textarea textarea-bordered h-32 textarea-md"
                     value={content}
                     onChange={(e)=>setContent(e.target.value)}
                   />
