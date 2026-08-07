@@ -37,7 +37,7 @@ app.use("/api/notes",notesRoutes);
 
 if(process.env.NODE_MODULE==="prod"){
     app.use(express.static(path.join(__dirname,"../frontend/dist")))
-    app.get("*",(res,req) =>{
+    app.get("*",(req,res) =>{
         res.sendFile(path.join(__dirname,"../frontend","dist","index.html"));
     });
 }
