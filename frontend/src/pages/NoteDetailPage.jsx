@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import {Link,useNavigate,useParams} from 'react-router-dom'
 import api from '../lib/axios';
 import toast from 'react-hot-toast';
@@ -29,6 +29,7 @@ const NoteDetailPage = () => {
         setLoading(false);
       }
     }
+    // eslint-disable-next-line react-hooks/set-state-in-effect
       fetchNote();
    },[id]);
   //  console.log({notes});

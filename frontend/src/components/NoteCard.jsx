@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { PencilLine } from 'lucide-react';
 import { Trash2 } from 'lucide-react';
 import formateDate from "../lib/utils";
