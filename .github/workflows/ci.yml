@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build & Verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install root deps
+        run: npm install
+
+      - name: Build (installs backend + frontend, builds frontend)
+        run: npm run build
+
+      - name: Lint frontend
+        run: npm run lint --prefix frontend
+        continue-on-error: false
+
+      - name: Boot backend and check health
+        run: |
+          npm run start &
+          sleep 5
+          curl --fail http://localhost:5001/api/health || exit 1
+          kill %1
+        env:
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+          UPSTASH_REDIS_REST_URL: ${{ secrets.UPSTASH_REDIS_REST_URL }}
+          UPSTASH_REDIS_REST_TOKEN: ${{ secrets.UPSTASH_REDIS_REST_TOKEN }}
+          PORT: 5001
