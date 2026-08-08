@@ -15,7 +15,7 @@ router.post("/", rateLimiter, createNote);
 router.put("/:id",updateNote);
 
 router.delete("/:id",deleteNote);
-router.delete("/health",cronJob);
+router.get("/health",cronJob);
 
 
 

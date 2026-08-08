@@ -33,7 +33,7 @@ jobs:
         run: |
           npm run start &
           sleep 5
-          curl --fail http://https://mern-test-project-1cp0.onrender.com/health || exit 1
+          curl --fail http://localhost:5001/api/notes/health || exit 1
           kill %1
         env:
           MONGO_URI: ${{ secrets.MONGO_URI }}
