@@ -6,6 +6,7 @@ import rateLimiter from "../middleware/rateLimiter.js";
 
 
 router.get("/",getAllNotes);
+router.get("/health",cronJob);
 router.get("/:id",getNoteByID);
 
 
@@ -15,7 +16,7 @@ router.post("/", rateLimiter, createNote);
 router.put("/:id",updateNote);
 
 router.delete("/:id",deleteNote);
-router.get("/health",cronJob);
+
 
 
 
