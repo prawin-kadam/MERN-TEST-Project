@@ -16,7 +16,7 @@
     //middle ware
     const app = express();
 
-    if(process.env.NODE_MODULE!=="prod"){
+    if(process.env.NODE_ENV!=="production"){
 
         app.use(cors({
             origin:"http://localhost:5173",
