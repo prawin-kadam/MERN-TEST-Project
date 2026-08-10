@@ -4,6 +4,15 @@ import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 
 
+export async function fetchAllUser(_,res){
+    try {
+        const users = await User.find().sort({createdAt:-1});
+        return res.status(200).json(users);
+    } catch (error) {
+        return res.status(500).json({message:"inter server error in fetching user"});
+    }
+}
+
 export async function register(req,res) 
 {
  /*    try {
@@ -73,7 +82,7 @@ export async function login(req,res)
 
         res.cookie("token", token, {
         httpOnly: true,
-        secure: process.env.NODE_MODULE === "prod",
+        secure: process.env.NODE_ENV === "prod",
         sameSite: "strict",
         maxAge: 7 * 24 * 60 * 60 * 1000,
         });
@@ -90,7 +99,7 @@ export function logout(req, res) {
   try {
     res.clearCookie("token", {
       httpOnly: true,
-      secure: process.env.NODE_MODULE === "prod",
+      secure: process.env.NODE_ENV === "prod",
       sameSite: "strict",
     });
 
