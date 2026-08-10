@@ -13,7 +13,7 @@ export async function getAllNotes(req,res) {
 
 export async function getNoteByID(req,res) {
     try {
-        const note = await Notes.findOne({
+        const notes = await Notes.findOne({
             _id: req.params.id,
             user: req.userId
         });
