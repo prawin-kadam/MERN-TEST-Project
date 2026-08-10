@@ -110,7 +110,7 @@ const LoginPage = () => {
                 <div className="divider"></div>
                 <p className="text-center text-sm">
                     Don't have account?{" "}
-                    <Link to={"/"} className="link link-primary font font-semibold">Create account</Link>
+                    <Link to={"/register"} className="link link-primary font font-semibold">Create account</Link>
                 </p>
             </div>    
 

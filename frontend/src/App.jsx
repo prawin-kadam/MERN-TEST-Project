@@ -4,6 +4,7 @@ import CreatePage from './pages/CreatePage'
 import NoteDetailPage from './pages/NoteDetailPage'
 import LoginPage from './auth/pages/LoginPage'
 import toast from 'react-hot-toast'
+import RegisterPage from './auth/pages/RegisterPage'
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Routes>
         {/* authentication */}
         <Route path="/" element={<LoginPage/>} />
+        <Route path="/register" element={<RegisterPage/>} />
 
         <Route path="/notes" element={<HomePage/>} />
         <Route path="/create" element={<CreatePage/>} />
