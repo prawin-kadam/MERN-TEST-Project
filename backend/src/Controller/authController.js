@@ -30,6 +30,13 @@ export async function register(req,res)
     try 
     {
         const {username,password,c_password,email} = req.body;
+        
+        if (!username || !email || !password || !c_password) {
+
+            return res.status(400).json({
+                message: "All fields are required"
+            });
+        }
         if(password!==c_password){
             res.status(400).json({message:"password did not match "});
         }
