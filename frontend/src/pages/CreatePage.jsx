@@ -20,7 +20,7 @@ const CreatePage = () => {
     try {
       await api.post("/notes/",{title,content});
       toast.success("Notes added");
-      navigate("/");
+      navigate("/notes");
         
     } catch (error) {
       

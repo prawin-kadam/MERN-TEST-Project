@@ -1,10 +1,12 @@
 import express from "express";
 import { createNote, deleteNote, getAllNotes, updateNote ,getNoteByID} from "../Controller/notesController.js";
 import { cronJob } from "../Controller/cronController.js";
-const router = express.Router();
+import authMiddleware from "../middleware/authMiddleware.js";
 import rateLimiter from "../middleware/rateLimiter.js";
 
+const router = express.Router();
 
+router.use(authMiddleware);
 router.get("/",getAllNotes);
 router.get("/health",cronJob);
 router.get("/:id",getNoteByID);
